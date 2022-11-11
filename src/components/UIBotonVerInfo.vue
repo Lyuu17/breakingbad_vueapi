@@ -7,14 +7,14 @@
 <script>
 export default {
   props: {
-    char_id: {
+    id: {
       type: Number,
       required: true
     }
   },
   methods: {
     verInfo() {
-      this.$emit("verInfoPersonaje", this.char_id);
+      this.$emit("verInfoPersonaje", this.id);
     }
   }
 }

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <UIBuscar @buscarDatos="buscarDatos" :buscando="buscando"/>
-    <UIDatos :datos="lista_datos" @verInfoPersonaje="verInfoPersonaje"/>
+    <UIBuscar @buscarDatos="buscarDatos" @toggleListaFav="toggleListaFav" :buscando="buscando" :mostrar_fav="mostrar_fav"/>
+    <UIDatos :datos="lista" @verInfoPersonaje="verInfoPersonaje"/>
+    <UIPersonajeInfo :personaje_info="personaje_info" :en_favoritos="lista_enfavoritos" @toggleFav="toggleFav" @cerrarPersonajeInfo="cerrarPersonajeInfo"/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ import axios from 'axios';
 
 import UIBuscar from "./components/UIBuscar.vue";
 import UIDatos from "./components/UIDatos.vue";
+import UIPersonajeInfo from './components/UIPersonajeInfo.vue';
 
 class BreakingBadAPI {
   constructor() {
@@ -24,9 +26,11 @@ class BreakingBadAPI {
   obtenerPersonajesLimite(args, limite) {
     return this.obtenerPersonajes(`?limit=${limite}${args}`);
   }
-  obtenerPersonajes(args) {
-    let url = `${this.baseurl}/characters${args}`;
-    return axios.get(url);
+  obtenerPersonajePorId(id) {
+    return this.obtenerPersonajes(`/${id}`);
+  }
+  obtenerPersonajes(args = "") {
+    return axios.get(`${this.baseurl}/characters${args}`);
   }
 };
 
@@ -36,19 +40,22 @@ export default {
     return {
       api: new BreakingBadAPI(),
       lista_datos: [],
-      buscando: false
+      lista_favoritos: [],
+      mostrar_fav: false,
+      buscando: false,
+      personaje_info: null
     }
-  },
-  created: () => {
   },
   components: {
     UIBuscar,
-    UIDatos
+    UIDatos,
+    UIPersonajeInfo
   },
-  emits: ["buscarDatos", "verInfoPersonaje"],
+  emits: ["buscarDatos", "verInfoPersonaje", "toggleFav", "toggleListaFav", "cerrarPersonajeInfo"],
   methods: {
     async buscarDatos(texto) {
       this.buscando = true;
+      this.mostrar_fav = false;
 
       const result = await this.api.obtenerPersonajesPorNombre(texto, 100);
       if (result.data == null)
@@ -61,8 +68,32 @@ export default {
 
       this.buscando = false;
     },
-    verInfoPersonaje(char_id) {
-      alert("ver info " + char_id);
+    verInfoPersonaje(id) {
+      this.personaje_info = this.lista[id];
+    },
+    toggleFav() {
+      this.lista_enfavoritos ? this.lista_favoritos = this.lista_favoritos.filter((e) => e.char_id != this.personaje_info.char_id) : this.lista_favoritos.push(this.personaje_info);
+
+      localStorage.setItem("lista_favoritos", JSON.stringify(this.lista_favoritos));
+    },
+    toggleListaFav() {
+      this.mostrar_fav = !this.mostrar_fav;
+    },
+    cerrarPersonajeInfo() {
+      this.personaje_info = null;
+    }
+  },
+  async created() {
+    let item = localStorage.getItem("lista_favoritos");
+    if (item)
+      this.lista_favoritos = JSON.parse(item);
+  },
+  computed: {
+    lista_enfavoritos() {
+      return this.personaje_info == null ? false : this.lista_favoritos.filter((e) => e.char_id == this.personaje_info.char_id).length > 0;
+    },
+    lista() {
+      return !this.mostrar_fav ? this.lista_datos : this.lista_favoritos;
     }
   }
 }

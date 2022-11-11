@@ -21,8 +21,11 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
-      
-      </button>      
+      </button> 
+    </div>
+    <div class="ml-5 mt-4 relative">
+      <input type="checkbox" class="accent-green-500" @click="toggleListaFav" v-model="mostrar_fav">
+      Mostrar favoritos
     </div>
   </div>
 </template>
@@ -38,11 +41,18 @@ export default {
     buscando: {
       type: Boolean,
       required: true
+    },
+    mostrar_fav: {
+      type: Boolean,
+      required: true
     }
   },
   methods: {
     actBuscar() {
       this.$emit("buscarDatos", this.texto_busqueda);
+    },
+    toggleListaFav() {
+      this.$emit("toggleListaFav");
     }
   }
 }

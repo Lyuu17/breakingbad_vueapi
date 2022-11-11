@@ -11,7 +11,7 @@
           </tr>
       </thead>
       <tbody>
-        <UIDatosEntrada v-for="(e, i) in datos" :key="i" :datos="e" @verInfoPersonaje="verInfoPersonaje"/>
+        <UIDatosEntrada v-for="(e, i) in datos" :key="i" :datos="e" :id="i" @verInfoPersonaje="verInfoPersonaje"/>
       </tbody>
     </table>
   </div>

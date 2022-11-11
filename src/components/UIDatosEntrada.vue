@@ -5,7 +5,7 @@
     <td class="border text-center">{{ datos.status }}</td>
     <td class="border text-center">{{ datos.portrayed }}</td>
     <td class="border text-center">
-      <UIBotonVerInfo :char_id="datos.char_id" @verInfoPersonaje="verInfoPersonaje"/>
+      <UIBotonVerInfo :id="id" @verInfoPersonaje="verInfoPersonaje"/>
     </td>
   </tr>
 </template>
@@ -17,6 +17,10 @@ export default {
   props: {
     datos: {
       type: Object,
+      required: true
+    },
+    id: {
+      type: Number,
       required: true
     }
   },
