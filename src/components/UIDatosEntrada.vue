@@ -1,10 +1,10 @@
 <template>
-  <tr class="hover:backdrop-brightness-50">
-    <td class="border text-center">{{ datos.name }}</td>
-    <td class="border text-center">{{ datos.birthday }}</td>
-    <td class="border text-center">{{ datos.status }}</td>
-    <td class="border text-center">{{ datos.portrayed }}</td>
-    <td class="border text-center">
+  <tr class="border-b hover:backdrop-brightness-50">
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.name }}</td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.birthday }}</td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.status }}</td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.portrayed }}</td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">
       <UIBotonVerInfo :id="id" @verInfoPersonaje="verInfoPersonaje"/>
     </td>
   </tr>
