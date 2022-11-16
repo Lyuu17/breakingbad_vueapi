@@ -9,9 +9,9 @@
 <script>
 import axios from 'axios';
 
-import UIBuscar from "./components/UIBuscar.vue";
-import UIDatos from "./components/UIDatos.vue";
-import UIPersonajeInfo from './components/UIPersonajeInfo.vue';
+import Buscar from "./components/Buscar.vue";
+import Datos from "./components/Datos.vue";
+import PersonajeInfo from './components/PersonajeInfo.vue';
 
 class BreakingBadAPI {
   constructor() {
@@ -47,9 +47,9 @@ export default {
     }
   },
   components: {
-    UIBuscar,
-    UIDatos,
-    UIPersonajeInfo
+    Buscar,
+    Datos,
+    PersonajeInfo
   },
   emits: ["buscarDatos", "verInfoPersonaje", "toggleFav", "toggleListaFav", "cerrarPersonajeInfo"],
   methods: {

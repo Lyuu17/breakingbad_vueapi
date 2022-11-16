@@ -29,28 +29,10 @@
       </div>
     </div>
   </div>
-  <!--
-  <div class="flex justify-center ml-5 mr-5 p-5 border border-solid bg-green-700">
-    <table class="table-fixed overflow-x-scroll min-w-full border-collapse border border-solid bg-white">
-      <thead>
-          <tr>
-            <th class="border">Nombre</th>
-            <th class="border">Cumpleaños</th>
-            <th class="border">Estado</th>
-            <th class="border">Actor/actriz</th>
-            <th class="border"></th>
-          </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
-  </div>
-  -->
 </template>
 
 <script>
-import UIDatosEntrada from './UIDatosEntrada.vue';
+import DatosEntrada from './DatosEntrada.vue';
 
 export default {
   props: {
@@ -61,7 +43,7 @@ export default {
   },
   emits: ["verInfoPersonaje"],
   components: {
-    UIDatosEntrada
+    DatosEntrada
   },
   methods: {
     verInfoPersonaje(char_id) {

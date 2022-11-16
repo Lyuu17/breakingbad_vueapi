@@ -5,13 +5,13 @@
     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.status }}</td>
     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">{{ datos.portrayed }}</td>
     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border text-center">
-      <UIBotonVerInfo :id="id" @verInfoPersonaje="verInfoPersonaje"/>
+      <BotonVerInfo :id="id" @verInfoPersonaje="verInfoPersonaje"/>
     </td>
   </tr>
 </template>
 
 <script>
-import UIBotonVerInfo from './UIBotonVerInfo.vue';
+import BotonVerInfo from './BotonVerInfo.vue';
 
 export default {
   props: {
@@ -25,7 +25,7 @@ export default {
     }
   },
   components: {
-    UIBotonVerInfo
+    BotonVerInfo
   },
   emits: ["verInfoPersonaje"],
   methods: {
