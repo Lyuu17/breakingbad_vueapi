@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center border border-solid bg-green-700 m-auto pt-2 mt-2 pb-2 mb-2 w-1/2">
+  <div class="flex justify-center border border-solid bg-green-700 m-auto pt-2 mt-2 pb-2 mb-2 md:w-1/2">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-x-auto">
         <table class="min-w-full bg-white">
@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <UIDatosEntrada v-for="(e, i) in datos" :key="i" :datos="e" :id="i" @verInfoPersonaje="verInfoPersonaje"/>
+            <DatosEntrada v-for="(e, i) in datos" :key="i" :datos="e" :id="i" @verInfoPersonaje="verInfoPersonaje"/>
           </tbody>
         </table>
       </div>

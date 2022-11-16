@@ -1,8 +1,8 @@
 <template>
   <div>
-    <UIBuscar @buscarDatos="buscarDatos" @toggleListaFav="toggleListaFav" :buscando="buscando" :mostrar_fav="mostrar_fav"/>
-    <UIDatos :datos="lista" @verInfoPersonaje="verInfoPersonaje"/>
-    <UIPersonajeInfo :personaje_info="personaje_info" :en_favoritos="lista_enfavoritos" @toggleFav="toggleFav" @cerrarPersonajeInfo="cerrarPersonajeInfo"/>
+    <Buscar @buscarDatos="buscarDatos" @toggleListaFav="toggleListaFav" :buscando="buscando" :mostrar_fav="mostrar_fav"/>
+    <Datos :datos="lista" @verInfoPersonaje="verInfoPersonaje"/>
+    <PersonajeInfo :personaje_info="personaje_info" :en_favoritos="lista_enfavoritos" @toggleFav="toggleFav" @cerrarPersonajeInfo="cerrarPersonajeInfo"/>
   </div>
 </template>
 

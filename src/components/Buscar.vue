@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col border border-solid justify-center bg-green-700 m-auto pt-2 mt-2 pb-2 mb-2 w-1/2">
+  <div class="flex flex-col border border-solid justify-center bg-green-700 m-auto pt-2 mt-2 pb-2 mb-2 md:w-1/2">
     <div class="flex justify-center mb-5 relative">
       <img class="h-12" src="../assets/Breaking-Bad-Logo.png"/>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="personaje_info != null" tabindex="-1" aria-hidden="true" class="flex backdrop-blur-sm justify-center place-items-center overflow-y-auto overflow-x-hidden fixed w-full md:inset-0 md:h-full">
+  <div v-if="personaje_info != null" tabindex="-1" aria-hidden="true" class="flex backdrop-blur-sm justify-center place-items-center overflow-y-auto overflow-x-hidden fixed w-full inset-0 h-full">
     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
       <!-- content -->
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
