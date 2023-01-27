@@ -1,6 +1,6 @@
 # Breaking Bad API
 
-Utiliza la API de (breakingbadapi.com)[https://github.com/timbiles/Breaking-Bad--API]. Dejó de funcionar en Diciembre 2022.
+Utiliza la API de [breakingbadapi.com](https://github.com/timbiles/Breaking-Bad--API). Dejó de funcionar en Diciembre 2022.
 
 ## Preview
 
